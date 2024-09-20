@@ -10,13 +10,13 @@ while True:
     vowels = 0
     novowels = 0
 
-    for chars in letter:
-        if chars.isalpha():
+    for char in letter:
+        if char.isalpha():
             totalLetter += 1
-            if chars in vowelsLatin or chars in vowelsCyrillic:
-                vowels += 1
-            else:
-                novowels += 1
+        if char in vowelsLatin or char in vowelsCyrillic:
+            vowels += 1
+        else:
+            novowels += 1
 
     if totalLetter == 0:
         print("Вы не ввели букв. Пожалуйста, введите только буквы (А-Я) или (A-Z)")
