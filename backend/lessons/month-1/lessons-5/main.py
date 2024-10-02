@@ -9,7 +9,7 @@ students = {
 
 """Доступ к Значениям Словаря """
 # print(students)
-# print(students["name"])
+print(students["name"])
 # print(students.get("nam", 'нету такого ключа'))
 
 
@@ -80,11 +80,13 @@ if time in "утро" or time in ("morning") or searWord:
         print(f"Доброе {time}".title)
     elif time in "morning" or engWord:
         print(f'have a good {time}')
+
 elif time in "день" or time in ("day") or searWord:
     if time in "день" or rusWord:
         print(f"Добрый {time}".title)
     elif time in "day" or engWord:
         print(f'have a good {time}')
+
 elif time in "вечер" or time in ("eveningh") or searWord:
     if time in "вечер" or rusWord:
         print(f"Доброе {time}".title)
