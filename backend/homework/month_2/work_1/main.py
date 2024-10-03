@@ -79,14 +79,18 @@ class Coffimachine():
             return "\nпроцесс завершен"
 
     coffiTypes = ['capuchin', 'classck', 'express', 'cocao']
-
+    option = {
+        "yes":"с cахaром",
+        "y":"с cахaром",
+        "no":"без сахара",
+        "n":"без сахара"
+    }
     def rdyCoffi(self, type: str, sugar: str) -> str:
-        if type in self.coffiTypes:
-            if sugar == 'yes' or sugar == 'y' or sugar == 'no' or sugar == 'n':
-                if sugar == 'n' or sugar == 'no':
-                    return f'\nваше кофе:{type} и без сахара'
-                if sugar == 'y' or sugar == 'yes':
-                    return f'\nваше кофе:{type} и c сахара'
+        if type in self.coffiTypes and sugar in self.option:
+            return f'ваш Коффе: {type} и {self.option[sugar]}'
+        return "не корекный ввод"
+
+
 
     def info(self) -> str:
         text1 = f'\n  Coffimachine\nназвание машины: {self.name}\nбренд машины: {

@@ -2,11 +2,15 @@
 # множественное наследование
 # gitignore / git rm --cached (-r)
 # СУПЕР класс\РОДИТЕЛЬСКИЙ класс
-from lesson-\1.main import Car, mers2  # type: ignore
+
+from ..lesson_1.main import a  
+
+print(a)
+# print(mers2)
 
 
 class Zavod:
-    name = 'Завод имени Артура'
+    name = "Завод имени Артура"
 
     def __init__(self, id):
         self.id = id
@@ -21,10 +25,10 @@ class Bmw(Car, Zavod):
         Zavod.__init__(self, id)
 
     def marks(self):
-        print('официальный представитель BMW')
+        print("официальный представитель BMW")
 
 
-bmw = Bmw('x5', 2022, 1)
+bmw = Bmw("x5", 2022, 1)
 # bmw.marks()
 print(Bmw.mro())
 # MRO-порядок выполнения методов
