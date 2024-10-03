@@ -25,19 +25,20 @@ while True:
     try:
         if userInput == "1":
             nameCountry = input("Ввидите имя старны: ")
-            if nameCountry in countryFlags:
-                os.system('clear')
-                print("__________________________________________")
-                print(f"Цвет стараны {nameCountry}",
-                      ", ".join(countryFlags[nameCountry]))
-                print("------------------------------------------")
-                sleep(3)
-            else:
-                os.system('clear')
-                print("----------------------------- !!!")
-                print("Не правильно ввили имя страны !!!")
-                print("----------------------------- !!!")
-                sleep(2)
+            for country in countryFlags:
+                if nameCountry in country:
+                    os.system('clear')
+                    print("__________________________________________")
+                    print(f"Цвет стараны {nameCountry}",
+                          ", ".join(countryFlags[nameCountry]))
+                    print("------------------------------------------")
+                    sleep(3)
+                else:
+                    os.system('clear')
+                    print("----------------------------- !!!")
+                    print("Не правильно ввили имя страны !!!")
+                    print("----------------------------- !!!")
+                    sleep(2)
         elif userInput == "2":
             nameCountry = input("Ввидите имя старны: ").lower()
             colorCountry = input("Введите цвет страны: ")
@@ -45,6 +46,11 @@ while True:
             countryFlags[nameCountry] = colors
             printCountry()
         elif userInput == "0":
+            for key, country in countryFlags:
+                print(f'{country} - {countryFlags}')
+                sleep(2)
+
+            print()
             break
         else:
             os.system('clear')

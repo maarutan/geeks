@@ -100,7 +100,7 @@ class Coffimachine():
 
 coffi = Coffimachine("a1545", "Viteg", 10)
 
-noCandy = coffi.rdyCoffi("express", "n")
+noCandy = coffi.rdyCoffi("express", "no")
 coffiInfo = coffi.info()
 startCoffi = coffi.start()
 
