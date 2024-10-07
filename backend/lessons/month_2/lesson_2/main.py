@@ -3,10 +3,11 @@
 # gitignore / git rm --cached (-r)
 # СУПЕР класс\РОДИТЕЛЬСКИЙ класс
 
-from ..lesson_1.main import a  
+import sys
+import os
 
-print(a)
-# print(mers2)
+sys.path.append(os.path.join(os.path.dirname(__file__), "../lesson_1/"))
+from pathPY import Car  # type: ignore
 
 
 class Zavod:
