@@ -2,15 +2,6 @@
 # Class
 obj = 'a'
 
-print(type(obj))
-
-
-def a(b):
-    print(b)
-
-
-p = a(7)
-
 
 class Car:
     name = 'MERS'
@@ -29,7 +20,21 @@ class Car:
 mers = Car('bmw', 1999)
 mers2 = Car('312', 2010)
 
+
+class Name():
+    def __init__(self,name,surame,age):
+        self.name = name
+        self.surname = surame
+        self.age = age
+    def sayName(self):
+        print(self.name) 
+        
+
+
+
+
 if __name__ == '__main__':
     print(len(mers))
     print(mers2)
+    print(type(obj))
 # обьект\экземпляр

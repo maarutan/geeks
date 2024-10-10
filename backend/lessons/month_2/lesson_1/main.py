@@ -1,16 +1,19 @@
 # OOP
 # Class
 obj = 'a'
+from pathPY import Name
 
-print(type(obj))
+
+marat = Name("marat","arzymatov",16)
+
+marat.sayName()
+
+
+
 
 
 def a(b):
     print(b)
-
-
-p = a(7)
-
 
 class Car:
     name = 'MERS'
@@ -30,6 +33,8 @@ mers = Car('bmw', 1999)
 mers2 = Car('312', 2010)
 
 if __name__ == '__main__':
+    print(type(obj))
     print(len(mers))
     print(mers2)
+    a(7)
 # обьект\экземпляр
