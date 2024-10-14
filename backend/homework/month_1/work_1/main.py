@@ -33,19 +33,19 @@ sat = float(
         """Cколько вы потратели ???
 [за Субботу]: """
     )
-)
-sun = float(
+
+sun=float(
     input(
         """Cколько вы потратели ???
 [за Воскрисения] """
     )
 )
 
-totalSum = mon + tue + wed + thu + fri + sat + sun
-totalSum = round(totalSum, 1)
+totalSum=mon + tue + wed + thu + fri + sat + sun
+totalSum=round(totalSum, 1)
 
-average = totalSum / 7
-average = round(average, 1)
+average=totalSum / 7
+average=round(average, 1)
 
 print(f"общая сумма потраченных денег за неделю : {totalSum} cомов")
 print(f"также средняя сумма потраченных денег {average} сомов")
