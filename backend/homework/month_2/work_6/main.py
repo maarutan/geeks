@@ -1,4 +1,5 @@
 import os
+import json
 from time import sleep
 
 
@@ -19,13 +20,24 @@ class Book:
         readStatus = "✔️  read" if self.read else "✖️  unread"
         return f"{readStatus} | {self.title} by {self.author} ({self.year})"
 
+    def to_dict(self):
+        return {
+            "title": self.title,
+            "author": self.author,
+            "year": self.year,
+            "read": self.read,
+        }
+
 
 class Library:
-    def __init__(self):
+    def __init__(self, filepath="library.json"):
         self.books = []
+        self.filepath = filepath
+        self.load_books()
 
     def addBook(self, *books):
         self.books.extend(books)
+        self.save_books()
 
     def listBooks(self):
         if not self.books:
@@ -44,6 +56,15 @@ class Library:
         book = self.findTitle(title)
         if book:
             book.markAsRead()
+            self.save_books()
+            return True
+        return False
+
+    def markBookAsUnread(self, title):
+        book = self.findTitle(title)
+        if book:
+            book.markAsUnread()
+            self.save_books()
             return True
         return False
 
@@ -51,9 +72,29 @@ class Library:
         book = self.findTitle(title)
         if book:
             self.books.remove(book)
+            self.save_books()
             print(f"Книга '{title}' удалена из библиотеки.")
         else:
             print(f"Книга '{title}' не найдена.")
+
+    def save_books(self):
+        with open(self.filepath, "w", encoding="utf-8") as file:
+            json_books = [book.to_dict() for book in self.books]
+            json.dump(json_books, file, ensure_ascii=False, indent=4)
+
+    def load_books(self):
+        if os.path.exists(self.filepath):
+            with open(self.filepath, "r", encoding="utf-8") as file:
+                books_data = json.load(file)
+                for book_data in books_data:
+                    self.books.append(
+                        Book(
+                            book_data["title"],
+                            book_data["author"],
+                            book_data["year"],
+                            book_data["read"],
+                        )
+                    )
 
     def __str__(self):
         return self.listBooks()
@@ -100,11 +141,11 @@ while True:
             clear_screen()
 
             print(
-                "Library:\n1. list books\n2. find book\n3. mark book as read\n4. remove book\n5. back\n━━━━━━━━━━━━━━━━━\n6. exit"
+                "Library:\n1. list books\n2. find book\n3. mark book as read\n4. mark book as unread\n5. remove book\n6. back\n━━━━━━━━━━━━━━━━━\n7. exit"
             )
             command = input("\noption: ")
 
-            if command in ["exit", "quit", "e", "q", "3"]:
+            if command in ["exit", "quit", "e", "q", "7"]:
                 clear_screen()
                 break
 
@@ -142,18 +183,25 @@ while True:
 
             elif command == "4":
                 title = input("title: ")
-                library.removeBook(title)
+                if library.markBookAsUnread(title):
+                    print("Книга отмечена как не прочитанная.")
+                else:
+                    print("Книга не найдена для отметки как не прочитанная.")
                 print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
                 print(library)
                 print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
                 sleep(4)
 
             elif command == "5":
-                clear_screen()
+                title = input("title: ")
+                library.removeBook(title)
+                print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+                print(library)
+                print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+                sleep(4)
 
             elif command == "6":
                 clear_screen()
-                break
 
             else:
                 clear_screen()
