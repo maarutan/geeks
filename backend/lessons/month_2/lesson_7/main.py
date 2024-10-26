@@ -66,13 +66,13 @@ with sq.connect("test.db") as connection:
     # 2--------------------------------------------------
 
     # -----------------fetchBase-------------------------
-    cursor.execute(""" SELECT fio,old FROM users  """)
+    # cursor.execute(""" SELECT fio,old FROM users  """)
     # print(cursor.fetchall())
     # print(cursor.fetchone())
     # print(cursor.fetchmany(2))
 
-    for i in cursor:
-        print(i)
+    # for i in cursor:
+    #     print(i)
 
     # 1 -------------------------------------------------
     # SELECT - это операция выбора данных | как return в функции
@@ -88,4 +88,22 @@ with sq.connect("test.db") as connection:
     # } - это цикл который выводит все строки
     # ----------------------Update------------------------
 
-    # cursor.execute(""" UPDATE useers SET   """)
+    cursor.execute(""" UPDATE users SET old = 50 WHERE id = 1 """)
+    print()
+
+    cursor.execute(""" SELECT * FROM users  """)
+    # for i in cursor:
+    #     print(i)
+    # # 1--------------------------------------------------
+    # UPDATE - это операция обновления данных
+    # SET - это установить
+    # WHERE - это где
+    # WHERE - это как if в цикле
+    # WHERE операторы - =, >, <, >=, <=, !=, LIKE, IN, BETWEEN, IS NULL, IS NOT NULL
+
+    # ----------------------Delete------------------------
+
+    cursor.execute(""" DELETE FROM users WHERE fio = 'beka' """)
+
+    for i in cursor:
+        print(i)
