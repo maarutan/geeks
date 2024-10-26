@@ -40,12 +40,20 @@ while rounds > 0:
     day = int(day)
     month = int(month)
     year = int(year)
-        
 
     try:
-        if (day > 31 or day < 1 and month < 1 or month > 12 or year <= 1900 or year > 2024):
+        if (
+            day > 31
+            or day < 1
+            and month < 1
+            or month > 12
+            or year <= 1900
+            or year > 2024
+        ):
             print(" ")
-            print("Вы ошиблись в вводе!!!\nправильный ввод: <day,month,year>: <(1-31) (1-12) (1900-2024)>")
+            print(
+                "Вы ошиблись в вводе!!!\nправильный ввод: <day,month,year>: <(1-31) (1-12) (1900-2024)>"
+            )
             sing = "из-за ошибки у вас неопределен знак задиака"
             print(" ")
         else:
@@ -80,11 +88,13 @@ while rounds > 0:
                 print(" ")
 
             print(" ")
-            print(f' День: {day}, \n Месяц: {month}, \n Год: {
-                year}, \n Знак задиака: {sing.title()}.')
+            print(
+                f" День: {day}, \n Месяц: {month}, \n Год: {
+                    year}, \n Знак задиака: {sing.title()}."
+            )
             print("___________________________")
             print(f" {day}.{month}.{year}")
             print("")
     except ValueError:
-        print('вы не правильно ввили повторите попытку только числа')
+        print("вы не правильно ввили повторите попытку только числа")
     rounds -= 1
