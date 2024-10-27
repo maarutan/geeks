@@ -9,11 +9,11 @@ with sq.connect("base.db") as connects:
     cursor.execute(
         """ CREATE TABLE IF NOT EXISTS students (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name VARCHAR(50),
-        surname VARCHAR(50),
-        old INTEGER,
-        hobby VARCHAR(100),
-        dzBall INTEGER
+        name VARCHAR(50) NOT NULL,
+        surname VARCHAR(50) NOT NULL,
+        old INTEGER  NOT NULL,
+        hobby VARCHAR(100) NOT NULL,
+        dzBall INTEGER NOT NULL
         )
         """
     )
