@@ -4,8 +4,8 @@ import os
 if os.path.exists("person.db"):
     os.remove("person.db")
 
-with sql.connect("person.db") as connection:
-    cursor = connection.cursor()
+with sql.connect("person.db") as c:
+    cursor = c.cursor()
 
     cursor.execute(
         """
