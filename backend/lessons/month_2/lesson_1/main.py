@@ -1,22 +1,20 @@
 # OOP
 # Class
-obj = 'a'
+obj = "a"
 from pathPY import Name
 
 
-marat = Name("marat","arzymatov",16)
+marat = Name("marat", "arzymatov", 16)
 
 marat.sayName()
-
-
-
 
 
 def a(b):
     print(b)
 
+
 class Car:
-    name = 'MERS'
+    name = "MERS"
 
     def __init__(self, model, year):
         self.model = model
@@ -26,13 +24,13 @@ class Car:
         print(self.name)
 
     def __str__(self):
-        return f'{self.model} {self.year}'
+        return f"{self.model} {self.year}"
 
 
-mers = Car('bmw', 1999)
-mers2 = Car('312', 2010)
+mers = Car("bmw", 1999)
+mers2 = Car("312", 2010)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(type(obj))
     print(len(mers))
     print(mers2)
