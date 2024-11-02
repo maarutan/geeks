@@ -1,7 +1,9 @@
-from decouple import config
+from decouple import Config, RepositoryEnv
+from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, executor, types
 import logging
 
+config = Config(RepositoryEnv("../.env"))
 token = config("TOKEN")
 bot = Bot(token=token)
 dp = Dispatcher(bot)
