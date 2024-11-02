@@ -1,9 +1,17 @@
-/backend/**/venv/
+backend/**/venv/
 backend/**/.venv/
-backend/**/env/
-backend/**/.env/
 backend/**/venv*
+backend/**/.venv*
+
 backend/**/env*
+backend/**/env/
+backend/**/.env*
+backend/**/.env/
+
+backend/**/.vscode
+backend/**/.vscode*
+backend/**/vscode
+backend/**/vscode*
 
 .idea 
 
