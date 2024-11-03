@@ -1,5 +1,4 @@
 from decouple import Config, RepositoryEnv
-from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, executor, types
 import logging
 
