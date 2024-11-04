@@ -1,6 +1,7 @@
-from decouple import Config, RepositoryEnv
-from aiogram import Bot, Dispatcher, executor, types
+from decouple import Config, RepositoryEnv  # type: ignore
+from aiogram import Bot, Dispatcher, executor, types  # type: ignore
 import logging
+
 
 config = Config(RepositoryEnv("../.env"))
 token = config("TOKEN")
