@@ -19,4 +19,5 @@ backend/**/__pycache__*
 backend/**/.__pycache__*
 
 .idea 
-
+/backend/**/.git
+/backend/**/.git*
