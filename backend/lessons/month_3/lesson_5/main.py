@@ -1,12 +1,15 @@
 from config import bot, dp, Admin
 from aiogram import Bot, Dispatcher, executor, types  # type: ignore
 import logging
-from handlers import command, quiz, fsm_reg, echo
+from handlers import command, quiz, fsm_reg, echo, fsm_store
+from db import db_main
 
 
 async def on_startup(_):
     for admin in Admin:
         await bot.send_message(admin, "Бот запущен")
+
+        await db_main.sql_create()
 
 
 async def off_startup(_):
@@ -18,6 +21,7 @@ command.register_commands(dp)
 quiz.register_quiz(dp)
 fsm_reg.reg_handler_fsm_registration(dp)
 echo.register_echo(dp)
+fsm_store.reg_handler_fsm_store(dp)
 
 
 if __name__ == "__main__":
