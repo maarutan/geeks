@@ -1,0 +1,9 @@
+from aiogram import Dispatcher, types
+
+
+async def echo(message: types.Message):
+    await message.answer(message.text)
+
+
+def register_echo(dp: Dispatcher):
+    dp.register_message_handler(register_echo)
