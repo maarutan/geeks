@@ -1,13 +1,11 @@
-from aiogram import Bot, Dispatcher  # type: ignore
-from decouple import Config, RepositoryEnv  # type: ignore
-from aiogram.contrib.fsm_storage.memory import MemoryStorage  # type: ignore
+from aiogram import Bot, Dispatcher
+from decouple import config
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
-Admin = [
+Admins = [
     7351608256,
 ]
 
-
-config = Config(RepositoryEnv("../.env"))
 token = config("TOKEN1")
 bot = Bot(token=token)
 storage = MemoryStorage()

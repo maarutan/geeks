@@ -1,8 +1,5 @@
 # queries.py
-
 # В db_main.py
-
-
 CREATE_TABLE_TABLE = """
 CREATE TABLE IF NOT EXISTS store (
     id INTEGER PRIMARY KEY,
