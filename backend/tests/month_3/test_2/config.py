@@ -9,6 +9,6 @@ sotrage = MemoryStorage()
 bot = Bot(token=token)
 dp = Dispatcher(bot, storage=sotrage)
 
-Admin = [
+Admins = [
     7351608256,
 ]

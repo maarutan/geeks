@@ -2,8 +2,11 @@ from aiogram import Dispatcher, types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher.filters import Text
-from config import Admin
+from config import Admins
+from db import db_main
 import buttons
+
+kb_remove = types.ReplyKeyboardRemove()
 
 
 class RegisterFSM(StatesGroup):
@@ -15,7 +18,7 @@ class RegisterFSM(StatesGroup):
 
 
 async def add_in_store(message: types.Message):
-    if message.from_user.id in Admin:
+    if message.from_user.id in Admins:
         await RegisterFSM.name.set()
         await message.reply("Введите название товара: ", reply_markup=buttons.cancel)
     else:
@@ -61,18 +64,40 @@ async def load_photo(message: types.Message, state: FSMContext):
 
     async with state.proxy() as data:
         data["photo"] = message.photo[-1].file_id
-    await message.reply_photo(
-        data["photo"],
-        caption=(
-            f"Товар: {data['name']}\n"
-            f"{'-'*50}\n"
-            f"Категория: {data['category']}\n"
-            f"Размер: {data['size']}\n"
-            f"Артикул: {data['articul']}\n"
-            f"{'-'*50}\n"
-            f"Админ: {message.from_user.first_name} ^^\n \nхотители вы подтвердить в базу ???"
-        ),
-    )
+        await message.reply_photo(
+            data["photo"],
+            caption=(
+                f"Товар: {data['name']}\n"
+                f"{'-'*50}\n"
+                f"Категория: {data['category']}\n"
+                f"Размер: {data['size']}\n"
+                f"Артикул: {data['articul']}\n"
+                f"{'-'*50}\n"
+                f"Админ: {message.from_user.first_name} ^^\n"
+                f"Все права защищены © 2024"
+            ),
+        )
+        await message.reply("сохранить в базу ?", reply_markup=buttons.submit)
+
+
+async def submit(message: types.Message, state: FSMContext):
+    if message.text.lower() == "submit":
+        async with state.proxy() as data:
+            await db_main.insert_store(
+                data["name"],
+                data["category"],
+                data["size"],
+                data["articul"],
+                data["photo"],
+            )
+        await message.reply("Товар успешно добавлен!", reply_markup=kb_remove)
+    elif message.text.lower() == "cancel":
+        await message.reply("Добавление товара отменено.", reply_markup=kb_remove)
+    else:
+        await message.reply(
+            "Неверная команда. Попробуйте снова.", reply_markup=kb_remove
+        )
+    await state.finish()
 
 
 async def cancel_fsm(message: types.Message, state: FSMContext):
@@ -93,6 +118,12 @@ def register_fsm_add(dp: Dispatcher):
     dp.register_message_handler(load_category, state=RegisterFSM.category)
     dp.register_message_handler(load_size, state=RegisterFSM.size)
     dp.register_message_handler(load_articul, state=RegisterFSM.articul)
+    dp.register_message_handler(submit, Text(equals="submit", ignore_case=True))
+    dp.register_message_handler(
+        submit,
+        Text(equals=["submit", "cancel"], ignore_case=True),
+        state=RegisterFSM.photo,
+    )
     dp.register_message_handler(
         load_photo, content_types=["photo"], state=RegisterFSM.photo
     )
