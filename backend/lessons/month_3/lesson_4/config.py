@@ -1,4 +1,4 @@
-from aiogram import Bot, Dispatcher  # type: ignore
+from aiogram import Bot, Dispatcher   # type: ignore
 from decouple import Config, RepositoryEnv  # type: ignore
 from aiogram.contrib.fsm_storage.memory import MemoryStorage  # type: ignore
 

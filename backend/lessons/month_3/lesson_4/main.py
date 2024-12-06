@@ -1,7 +1,8 @@
-from config import bot, dp, Admin
-from aiogram import Bot, Dispatcher, executor, types  # type: ignore
 import logging
-from handlers import command, quiz, fsm_reg, echo
+from aiogram import executor  
+from config import Admin, bot, dp
+from handlers import command, echo, fsm_reg, quiz
+
 
 
 async def on_startup(_):

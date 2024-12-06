@@ -11,4 +11,7 @@ dp = Dispatcher(bot, storage=sotrage)
 
 Admins = [
     7351608256,
+    5012497252,
+    5032926953,
+    548184135,
 ]

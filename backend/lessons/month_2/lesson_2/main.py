@@ -6,6 +6,7 @@
 import sys
 import os
 
+
 sys.path.append(os.path.join(os.path.dirname(__file__), "../lesson_1/"))
 from pathPY import Car, mers2  # type: ignore
 
