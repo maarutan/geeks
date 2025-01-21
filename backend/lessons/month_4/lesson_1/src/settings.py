@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-from re import template
+# from re import template
+
 
 from django.urls import base
 

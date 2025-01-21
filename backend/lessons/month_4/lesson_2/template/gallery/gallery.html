@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Photo Gallery</h1>
+    <div class="container">
+        <div class="block1">
+            <div class="cardsContain">
+                <div class="card">
+                    <img src="{% static 'img/card1.jpg' %}" />
+                    <div class="scotch"></div>
+                </div>
+                <div class="hover-gray"></div>
+            </div>
+
+            <div class="cardsContain">
+                <div class="card">
+                    <img src="{% static 'img/card2.jpg' %}" />
+                    <div class="scotch"></div>
+                </div>
+                <div class="hover-gray"></div>
+            </div>
+
+            <div class="cardsContain">
+                <div class="card">
+                    <img src="{% static 'img/card3.jpg' %}" />
+                    <div class="scotch"></div>
+                </div>
+                <div class="hover-gray"></div>
+            </div>
+        </div>
+        <div class="block2">
+            <div class="cardsContain">
+                <div class="card">
+                    <img src="{% static 'img/card4.jpg' %}" />
+                    <div class="scotch"></div>
+                </div>
+                <div class="hover-gray"></div>
+            </div>
+
+            <div class="cardsContain">
+                <div class="card">
+                    <img src="{% static 'img/card5.jpg' %}" />
+                    <div class="scotch"></div>
+                </div>
+                <div class="hover-gray"></div>
+            </div>
+
+            <div class="cardsContain">
+                <div class="card">
+                    <img src="{% static 'img/card6.jpg' %}" />
+                    <div class="scotch"></div>
+                </div>
+                <div class="hover-gray"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

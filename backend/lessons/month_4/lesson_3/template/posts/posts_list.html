@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container col-6 mt-5 mx-auto gap-3">
+  <div class="row g-3">
+    {% for post in posts %}
+    <div class="col-md-4">
+      <div class="card mb-3">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" class="card-img-top img-fluid" alt="Изображение">
+        {% else %}
+        <img src="./static/placeHolderImg/HolderIMG.jpg"card-img-top img-fluid" alt="Изображение">
+        {% endif %}
+        
+        
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text">{{ post.description }}</p>
+          <p class="card-text" style="color: blue;">{{ post.create_at }}</p>
+          <a href="#" class="btn btn-primary stretched-link">Перейти куда-нибудь</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
+

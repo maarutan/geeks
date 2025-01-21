@@ -1,8 +1,6 @@
 {
-  "venvPath": "./.venv",
-  "pythonVersion": "3.8",
-  "include": ["src"],
-  "exclude": ["node_modules", ".git"],
-  "reportMissingImports": true,
-  "reportGeneralTypeIssues": true
+  "venvPath": "./",
+  "venv": ".venv",
+  "pythonPath": "./.venv/bin/python",
+  "exclude": ["**/node_modules", "**/__pycache__"]
 }

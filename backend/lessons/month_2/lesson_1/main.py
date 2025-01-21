@@ -1,7 +1,7 @@
 # OOP
 # Class
 obj = "a"
-from pathPY import Name
+# from pathPY import Name
 
 
 marat = Name("marat", "arzymatov", 16)
@@ -13,7 +13,7 @@ def a(b):
     print(b)
 
 
-class Car:
+class Car(object):
     name = "MERS"
 
     def __init__(self, model, year):
@@ -32,7 +32,7 @@ mers2 = Car("312", 2010)
 
 if __name__ == "__main__":
     print(type(obj))
-    print(len(mers))
+    # print(len(mers))
     print(mers2)
     a(7)
 # обьект\экземпляр

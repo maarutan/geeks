@@ -1,4 +1,5 @@
 import sqlite3 as sq
+
 from db import queries
 
 db = sq.connect("./db/store.sqlite3")

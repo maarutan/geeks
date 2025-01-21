@@ -1,0 +1,66 @@
+body {
+	background: #607d8b;
+	font-family: sans-serif;
+	overflow-x: hidden;
+}
+
+h1 {
+	text-decoration: underline;
+	text-align: center;
+	color: white;
+	font-weight: 100;
+	padding-bottom: 60px;
+}
+.card img {
+	height: 380px;
+	width: 300px;
+	border: solid 10px white;
+}
+
+.scotch {
+	height: 50px;
+	position: absolute;
+	top: -20px;
+	left: 80px;
+	width: 150px;
+	background: rgba(255, 255, 255, 0.629);
+}
+.card {
+	position: relative;
+	transition: 0.5s;
+	width: 300px;
+	z-index: 10;
+}
+.hover-gray {
+	position: absolute;
+	top: 0;
+	z-index: 10;
+	width: 320px;
+	height: 390px;
+	transition: 0.3s;
+}
+.hover-gray:hover {
+	background: rgba(255, 255, 255, 0.153);
+}
+.cardsContain {
+	position: relative;
+}
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 40px;
+}
+.block1,
+.block2 {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+}
+.cardsContain {
+	transition: 0.5s;
+	&:hover {
+		transform: scale(1.1);
+	}
+}

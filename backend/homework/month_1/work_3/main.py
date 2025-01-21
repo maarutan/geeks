@@ -31,3 +31,5 @@ while True:
     print(f"Гласных букв: {vowels}")
     print(f"Согласных букв: {novowels}")
     print(f"Гласные/Согласные: {vowelsSum}% / {novowelsSum}%\n")
+
+

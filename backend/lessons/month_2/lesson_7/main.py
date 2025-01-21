@@ -21,6 +21,9 @@
 # ----------------------Clreate---------------------
 import sqlite3 as sq
 
+
+
+
 with sq.connect("test.db") as connection:
     cursor = connection.cursor()
     cursor.execute(
